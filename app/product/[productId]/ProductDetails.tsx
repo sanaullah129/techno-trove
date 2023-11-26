@@ -36,7 +36,7 @@ const HorizontalLine = () => {
 }
 
 const DescriptionHorizontalLine = () => {
-    return <hr className="w-[95%] my-2 border-t border-solid border-[1.2px] border-blue-950" />
+    return <hr className="w-[95%] my-4 border-t border-solid border-[1.2px] border-blue-950" />
 }
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
