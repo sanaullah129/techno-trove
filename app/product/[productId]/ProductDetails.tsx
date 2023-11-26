@@ -83,12 +83,13 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     useEffect(() => {
         setIsProductInCart(false);
         if (cartProducts) {
-            const existingIndex = cartProducts.findIndex((item) => { item.id === product.id });
-            if (existingIndex == -1) {
+            const existingIndex = cartProducts.findIndex((item) => {return item.id === product.id;});
+            if (existingIndex > -1) {
                 setIsProductInCart(true);
             }
         }
-    }, [cartProducts])
+    }, [cartProducts]);
+    
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

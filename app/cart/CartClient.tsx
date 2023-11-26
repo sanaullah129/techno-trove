@@ -37,7 +37,7 @@ const CartClient = () => {
             </div>
             <div className="border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4">
                 <div className="w-[90px]">
-                    <ButtonDesign label="Clear Cart" onClick={() => { localStorage.clear(); location.reload();  }} small outline />
+                    <ButtonDesign label="Clear Cart" onClick={() => {}} small outline />
                 </div>
                 <div className="text-sm flex flex-col gap-1 items-start">
                     <div>
@@ -45,7 +45,7 @@ const CartClient = () => {
                             <span>SubTotal</span>
                             <span>$100</span>
                         </div>
-                        <p className="text-slate-500">Taxes and Shipping created at Checkout</p>
+                        <p className="text-slate-500 p-2">Taxes and Shipping created at Checkout</p>
                         <ButtonDesign label="Checkout" onClick={()=>{}}/>
                         <Link href="/" className="text-slate-500 flex items-center gap-1 mt-2" >
                         <MdArrowBack />
