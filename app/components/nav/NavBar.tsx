@@ -2,6 +2,7 @@ import Link from "next/link"
 import Container from "../Container"
 import { Oswald } from 'next/font/google'
 import CartCount from "./CartCount";
+import UserMenu from "./UserMenu";
 
 const oswald = Oswald({subsets: ['latin'], weight: ['700']});
 
@@ -14,8 +15,8 @@ const NavBar = () => {
             <Link href='/' className={`${oswald.className} text-lg`} >Techno Trove</Link>
             <div className="hidden md:block">Search</div>
             <div className="flex items-center gap-8 md:gap-12">
-              <CartCount/>
-              <div>User Menu</div>
+              <CartCount />
+              <UserMenu />
             </div>
           </div>
         </Container>
