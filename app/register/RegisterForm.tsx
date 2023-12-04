@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeadingDesign from "../components/HeadingDesign";
 import InputDesign from "../components/inputFields/InputDesign";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
@@ -11,8 +11,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { signIn } from 'next-auth/react';
 import { useRouter } from "next/navigation";
+import { SafeUser } from "@/types";
 
-const RegisterForm = () => {
+interface RegisterFormProps {
+    currentUser: SafeUser | null
+}
+
+const RegisterForm: React.FC<RegisterFormProps> = ({ currentUser }) => {
 
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -42,9 +47,20 @@ const RegisterForm = () => {
                     }
                 })
                 .catch(() => toast.error("Something went wrong. Please try again"))
-                .finally(()=> setIsLoading(false));
+                .finally(() => setIsLoading(false));
         });
     };
+
+    useEffect(() => {
+        if (currentUser) {
+            router.push('/');
+            router.refresh();
+        }
+    }, []);
+
+    if (currentUser) {
+        return <p className="text-center">You are already logged In. Redirecting...</p>
+    }
 
     return (
         <>
