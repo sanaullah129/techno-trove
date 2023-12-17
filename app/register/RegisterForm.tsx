@@ -65,7 +65,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ currentUser }) => {
     return (
         <>
             <HeadingDesign title="Sign Up for Techno Trave Account" />
-            <ButtonDesign label="Sign up with Google" outline icon={AiOutlineGoogle} onClick={() => { }} />
+            <ButtonDesign label="Continue with Google" outline 
+                icon={AiOutlineGoogle} 
+                onClick={() => {signIn('google')}} />
             <hr className="w-[95%] my-2 border-t border-solid border-[1.2px] border-blue-950" />
             <InputDesign id="name" label="Name" disabled={isLoading} register={register} errors={errors} />
             <InputDesign id="email" label="E-mail" disabled={isLoading} register={register} errors={errors} type="email" />

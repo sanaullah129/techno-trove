@@ -24,7 +24,7 @@ const UserMenu: React.FC<UserMenuProp> = ({ currentUser }) => {
         <>
             <div className='relative z-30' >
                 <div onClick={togglOpen} className=' p-2 border-[1px] border-black flex flex-row items-center gap-1 rounded-full cursor-pointer hover:shadow-md transition text-slate-700'>
-                    <AvatarDesign />
+                    <AvatarDesign src={currentUser?.image} />
                     <AiFillCaretDown />
                 </div>
                 {isOpen && (

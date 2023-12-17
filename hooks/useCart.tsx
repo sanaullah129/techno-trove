@@ -11,6 +11,8 @@ type CartContextType = {
     handleCartQtyIncrease: (product: CartProductType) => void
     handleCartQtyDecrease: (product: CartProductType) => void
     handleClearCart: () => void
+    paymentIntent: string | null
+    handleSetPaymentIntent: (val: string | null) => void
 }
 
 interface Props {
@@ -24,11 +26,16 @@ export const CartContextProvider = (props: Props) => {
     const [cartTotalQty, setcartTotalQty] = useState(0);
     const [cartTotalAmount, setcartTotalAmount] = useState(0);
     const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(null);
+    const [paymentIntent, setPaymentIntent] = useState<string | null>(null);
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem("eShopCartItems");
         const productsInCart: CartProductType[] | null = JSON.parse(cartItems);
+        const eShoppaymentIntent: any = localStorage.getItem('eShoppaymentIntent');
+        const paymentIntent: string | null = JSON.parse(eShoppaymentIntent);
+
         setCartProducts(productsInCart);
+        setPaymentIntent(paymentIntent);
     }, []);
     
     useEffect(()=>{
@@ -46,6 +53,12 @@ export const CartContextProvider = (props: Props) => {
         };
         getTotals();
     }, [cartProducts]);
+
+    const handleSetPaymentIntent = useCallback((val: string | null)=>{
+        setPaymentIntent(val);
+        localStorage.setItem('eShoppaymentIntent', JSON.stringify(val));
+
+    },  [paymentIntent]);
 
     const handleAddProductToCart = useCallback((product: CartProductType) => {
         setCartProducts((prev) => {
@@ -118,7 +131,9 @@ export const CartContextProvider = (props: Props) => {
         handleRemoveProductFromCart,
         handleCartQtyIncrease,
         handleCartQtyDecrease,
-        handleClearCart
+        handleClearCart,
+        paymentIntent,
+        handleSetPaymentIntent
     }
 
     return <CartContext.Provider value={value} {...props} />
