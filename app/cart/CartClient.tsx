@@ -6,8 +6,10 @@ import HeadingDesign from "../components/HeadingDesign";
 import ButtonDesign from "../components/ButtonDesign";
 import ItemContent from "./ItemContent";
 import { formatPrice } from "@/utils/formatPrice";
+import { useRouter } from "next/navigation";
 
 const CartClient = () => {
+    const router = useRouter();
     const { cartProducts, handleClearCart, cartTotalAmount } = useCart();
     if (!cartProducts || cartProducts.length === 0) {
         return (
@@ -47,7 +49,7 @@ const CartClient = () => {
                             <span>{formatPrice(cartTotalAmount)}</span>
                         </div>
                         <p className="text-slate-500 p-2">Taxes and Shipping created at Checkout</p>
-                        <ButtonDesign label="Checkout" onClick={()=>{}}/>
+                        <ButtonDesign label="Checkout" onClick={()=>{router.push('/checkout')}}/>
                         <Link href="/" className="text-slate-500 flex items-center gap-1 mt-2" >
                         <MdArrowBack />
                         <span>Continue Shopping</span>

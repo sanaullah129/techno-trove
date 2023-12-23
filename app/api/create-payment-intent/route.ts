@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import { CartProductType } from '@/app/product/[productId]/ProductDetails';
 import { getCurrentUser } from '@/actions/getCurrentUser';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+const stripe = new Stripe(`${process.env.STRIPE_SECRET_KEY}` as string, {
     apiVersion: '2023-10-16',
 });
 
@@ -13,7 +13,8 @@ const calculateOrderAmount = (items: CartProductType[]) => {
         const itemTotal = item.price * item.quantity;
         return acc + itemTotal;
     }, 0);
-    return totalPrice;
+    const price: any = Math.floor(totalPrice);
+    return price;
 };
 
 export async function POST(request: Request) {
