@@ -9,7 +9,7 @@ import CheckoutForm from './CheckoutForm';
 import { FiCheckCircle } from 'react-icons/fi';
 import ButtonDesign from '../components/ButtonDesign';
 
-const stripePromise = loadStripe(`${process.env.NEXTJS_STRIPE_PUBLISHABLE_KEY}` as string);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
 const CheckoutClient = () => {
     const { cartProducts, paymentIntent, handleSetPaymentIntent } = useCart();
@@ -20,8 +20,8 @@ const CheckoutClient = () => {
 
     const router = useRouter();
 
-    console.log("Payment Intent: ", paymentIntent);
-    console.log("Client Secret: ", clientSecret);
+     console.log("Payment Intent: ", paymentIntent);
+     console.log("Client Secret: ", clientSecret);
 
     useEffect(() => {
         //create a payment as soon as the page loads
@@ -39,6 +39,7 @@ const CheckoutClient = () => {
                 })
             }).then((res) => {
                 setLoading(false);
+                console.log(res);
                 if (res.status === 401) {
                     return router.push('/login');
                 }
@@ -46,9 +47,9 @@ const CheckoutClient = () => {
             }).then((data) => {
                 setClientSecret(data.paymentIntent.client_secret);
                 handleSetPaymentIntent(data.paymentIntent.id);
-            }).catch((error) => {
+            }).catch((err) => {
                 setError(true);
-                console.log("Error:", error);
+                console.log("Error:" + err);
                 toast.error("Something went wrong, please try again");
             })
         }
