@@ -13,7 +13,7 @@ const Footer = () => {
             <h3 className="text-base font-bold mb-2">Shop Categories</h3>
             <Link href='#'>Phones</Link>
             <Link href='#'>Laptops</Link>
-            <Link href='#'>Deskstops</Link>
+            <Link href='#'>Desktops</Link>
             <Link href='#'>Watches</Link>
             <Link href='#'>TVs</Link>
             <Link href='#'>Accessories</Link>

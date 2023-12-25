@@ -6,7 +6,7 @@ export async function getSession() {
     return await getServerSession(authOptions);
 };
 
-export async function getCurrentUser() {
+export default async function getCurrentUser() {
     try {
         const session = await getSession();
         
@@ -30,6 +30,6 @@ export async function getCurrentUser() {
         }
 
     } catch (error) {
-        
+        console.log("Get Current User Error: " + error);
     }
 }

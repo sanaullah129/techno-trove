@@ -3,7 +3,7 @@ import Container from "../Container"
 import { Oswald } from 'next/font/google'
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
-import { getCurrentUser } from "@/actions/getCurrentUser";
+import getCurrentUser from "@/actions/getCurrentUser";
 
 const oswald = Oswald({subsets: ['latin'], weight: ['700']});
 
