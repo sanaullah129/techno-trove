@@ -26,7 +26,6 @@ const Category: React.FC<CategoryProps> = ({ label, icon: Icon, selected }) => {
             const updateQuery: any = { ...currentQuery, category: label };
             //constructing url
             const url = qs.stringifyUrl({ url: '/', query: updateQuery }, { skipNull: true });
-            console.log(url);
             router.push(url);
         }
     }, [label, params, router]);

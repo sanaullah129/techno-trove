@@ -17,7 +17,6 @@ interface OrderDetailsProp{
 }
 
 const OrderDetails:React.FC<OrderDetailsProp> = ({ order }) => {
-console.log("delivery", order.deliveryStatus);
   return (
     <div className='max-w-[1150px] m-auto flex flex-col gap-2'>
         <div className='mt-8'>

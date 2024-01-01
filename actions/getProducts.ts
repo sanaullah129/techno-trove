@@ -33,10 +33,8 @@ export default async function getProducts(params: IProductParams) {
                 },
             }
         });
-console.log('products',products);
         return products;
     } catch (error: any) {
-        console.log('Error: ',error);
         throw new Error(error);
     }
 };

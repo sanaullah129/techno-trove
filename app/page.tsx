@@ -3,8 +3,6 @@ import Container from "./components/Container";
 import HomeBanner from "./components/HomeBanner";
 import ProductCard from "./components/products/ProductCard";
 import NullData from "./components/NullData";
-import { headers } from 'next/headers';
-
 interface HomeProps {
   searchParams: IProductParams;
 }
@@ -27,10 +25,6 @@ export default async function Home({ searchParams }: HomeProps) {
   };
 
   const shuffledProducts = shuffleArray(products);
-
-  const headersList = headers();
-const pathname = headersList.get("x-invoke-path") || "";
-console.log('pathname:', pathname);
 
   return (
     <div className="p-8">
