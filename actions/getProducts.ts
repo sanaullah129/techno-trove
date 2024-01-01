@@ -11,7 +11,7 @@ export default async function getProducts(params: IProductParams) {
         let searchString = searchTerm;
         if (!searchTerm) { searchString = '' };
 
-        let query: any;
+        let query: any = {};
         if (category) { query.category = category };
 
         const products = await prisma.product.findMany({
@@ -33,9 +33,10 @@ export default async function getProducts(params: IProductParams) {
                 },
             }
         });
-
+console.log('products',products);
         return products;
     } catch (error: any) {
+        console.log('Error: ',error);
         throw new Error(error);
     }
 };

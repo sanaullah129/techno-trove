@@ -8,7 +8,7 @@ import InputDesign from '@/app/components/inputFields/InputDesign'
 import SelectColorDesign from '@/app/components/inputFields/SelectColorDesign'
 import TextAreaDesign from '@/app/components/inputFields/TextAreaDesign'
 import firebaseApp from '@/libs/firebase'
-import { Categories } from '@/utils/categories'
+import { categories } from '@/utils/categories'
 import { colors } from '@/utils/colors'
 import React, { useCallback, useEffect, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
@@ -153,7 +153,7 @@ const AddProductForm = () => {
             <div className='font-medium w-full'>
                 <div className='mb-2 font-semibold'>Select a Category</div>
                 <div className='grid grid-cols-2 md:grid-cols-3 max-h-[50vh] overflow-y-auto gap-3'>
-                    {Categories.map((item) => {
+                    {categories.map((item) => {
                         if (item.label === 'All') {
                             return null;
                         };

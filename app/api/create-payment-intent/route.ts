@@ -26,6 +26,7 @@ export async function POST(request: Request) {
     };
 
     const body = await request.json();
+    console.log(body);
     const { items, payment_intent_id } = body; //destructuring body
     const total: number = calculateOrderAmount(items);
 
@@ -39,10 +40,12 @@ export async function POST(request: Request) {
         products: items
     };
 
+    console.log('order data', orderData);
+
     if (payment_intent_id) {
         //if intent exists updating it
         const currentIntent = await stripe.paymentIntents.retrieve(payment_intent_id);
-
+        console.log('current intent',currentIntent);
         if (currentIntent) {
             const updatedIntent = await stripe.paymentIntents.update(payment_intent_id, { amount: total });
             //if payment intent exists updating the order

@@ -4,6 +4,7 @@ import { Oswald } from 'next/font/google'
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
 import getCurrentUser from "@/actions/getCurrentUser";
+import Categories from "./Categories";
 
 const oswald = Oswald({subsets: ['latin'], weight: ['700']});
 
@@ -25,6 +26,7 @@ const NavBar = async () => {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   )
 }

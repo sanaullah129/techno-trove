@@ -6,7 +6,7 @@ import { MdTv } from "react-icons/md";
 import { MdKeyboardHide } from "react-icons/md";
 import { SlScreenDesktop } from "react-icons/sl";
 
-export const Categories = [
+export const categories = [
     {
         label: 'All',
         icon: RiStore3Line
