@@ -5,9 +5,8 @@ import { NextResponse } from 'next/server';
 export async function PUT(request: Request) {
     const CurrentUser = await getCurrentUser();
 
-    if (!CurrentUser || CurrentUser.Role !== 'ADMIN') {
-        return NextResponse.error();
-    };
+    if(!CurrentUser) { return NextResponse.error(); }
+    if (CurrentUser.Role !== 'ADMIN') { return NextResponse.error(); }
 
     const body = await request.json();
 

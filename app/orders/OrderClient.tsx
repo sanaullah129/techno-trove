@@ -17,7 +17,7 @@ import { useRouter } from 'next/navigation';
 import moment from 'moment';
 import { FiClock } from "react-icons/fi";
 
-interface ManageOrdersClientProps {
+interface OrderClientProps {
   orders: ExtendedOrder[];
 };
 
@@ -25,7 +25,7 @@ type ExtendedOrder = Order & {
     user: User
 };
 
-const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
+const OrderClient: React.FC<OrderClientProps> = ({ orders }) => {
 
   const router = useRouter();
 
@@ -73,35 +73,15 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
     {field: 'action', headerName: 'Actions', width: 200, renderCell:(params)=>{
       return (
       <div className='flex justify-between gap-4 w-full'>
-        <ActionButtons icon={BsTruck} onClick={() => handleDispatch(params.row.id)} />
-        <ActionButtons icon={MdOutlineFileDownloadDone} onClick={()=>handleDeliver(params.row.id)} />
         <ActionButtons icon={MdOutlineRemoveRedEye} onClick={()=>{router.push(`/order/${params.row.id}`)}} />
       </div>)
     }},
   ];
-
-  const handleDispatch = useCallback((id:string)=>{
-    axios.put('/api/order',{ id, deliveryStatus: 'dispatched' }).then((res)=>{
-        toast.success('Order Dispatched');
-        router.refresh();
-    }).catch((error)=>{
-        toast.error('Something went wrong, please try again');
-    });
-  },[]);
-
-  const handleDeliver = useCallback((id:string)=>{
-    axios.put('/api/order',{ id, deliveryStatus: 'delivered' }).then((res)=>{
-        toast.success('Order Delivered');
-        router.refresh();
-    }).catch((error)=>{
-        toast.error('Something went wrong, please try again');
-    });
-  },[]);
   
   return (
     <div className='w-[1150px] m-auto text-xl' >
       <div className='mb-4 mt-8'>
-        <HeadingDesign title='Manage Orders' center />
+        <HeadingDesign title='Your Orders' center />
       </div>
       <div style={{height: 600, width: '100%' }}>
         <DataGrid
@@ -121,4 +101,4 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
   )
 }
 
-export default ManageOrdersClient;
+export default OrderClient;

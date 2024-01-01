@@ -6,9 +6,8 @@ export async function POST(request: Request) {
 
     const CurrentUser = await getCurrentUser();
 
-    if (!CurrentUser || CurrentUser.Role !== 'ADMIN') {
-        return NextResponse.error();
-    };
+    if(!CurrentUser) { return NextResponse.error(); }
+    if (CurrentUser.Role !== 'ADMIN') { return NextResponse.error(); }
 
     const body = await request.json();
     const { name, description, price, brand, category, inStock, images } = body;
@@ -25,9 +24,8 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
     const CurrentUser = await getCurrentUser();
 
-    if (!CurrentUser || CurrentUser.Role !== 'ADMIN') {
-        return NextResponse.error();
-    };
+    if(!CurrentUser) { return NextResponse.error(); }
+    if (CurrentUser.Role !== 'ADMIN') { return NextResponse.error(); }
 
     const body = await request.json();
 

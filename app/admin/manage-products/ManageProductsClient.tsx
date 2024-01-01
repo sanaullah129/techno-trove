@@ -123,7 +123,7 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({ products })
   
   return (
     <div className='w-[1150px] m-auto text-xl' >
-      <div className='mv-4 mt-8'>
+      <div className='mb-4 mt-8'>
         <HeadingDesign title='Manage Products' center />
       </div>
       <div style={{height: 600, width: '100%' }}>

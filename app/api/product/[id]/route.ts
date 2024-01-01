@@ -3,10 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(request: Request, {params}: {params: {id: string}}){
 
-    const currentUser = await getCurrentUser();
-    if(!currentUser){
-        return NextResponse.error();
-    };
+    const CurrentUser = await getCurrentUser();
+    if(!CurrentUser) { return NextResponse.error(); }
+    if (CurrentUser.Role !== 'ADMIN') { return NextResponse.error(); }
 
     const product = await prisma?.product.delete({
         where: {id: params.id}
