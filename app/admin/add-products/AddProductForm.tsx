@@ -75,7 +75,6 @@ const AddProductForm = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         //Upload the images to Firebase and save to database
-        console.log('Added Product:', data);
         setIsLoading(true);
 
         let uploadedImages: UploadedImageType[] = [];
@@ -102,26 +101,20 @@ const AddProductForm = () => {
                             uploadTask.on('state_changed', (snapshot) => {
                                 //snapshot to track the progress of uploading files
                                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                                console.log('Upload is ' + progress + '% done');
                                 switch (snapshot.state) {
                                     case 'paused':
-                                        console.log('Upload is paused');
                                         break;
                                     case 'running':
-                                        console.log('Upload is running');
                                         break;
                                 }
                             }, (error) => {
-                                console.log("Error uploading Image", error);
                                 reject(error);
                             }, () => {
                                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                                     uploadedImages.push({ ...item, image: downloadURL })
-                                    console.log('File available at', downloadURL);
                                     resolve();
                                 }).catch((error) => {
                                     reject(error);
-                                    console.log("Error getting download URL: ", error);
                                 });
                             }
                             );
@@ -130,13 +123,11 @@ const AddProductForm = () => {
                 };
             } catch (error) {
                 setIsLoading(false);
-                console.log("Error uploading Image", error);
                 return toast.error("Error uploading Image");
             }
         };
         await handleImageUploads();
         const productData = { ...data, images: uploadedImages };
-        console.log(productData);
         axios.post('/api/product', productData).then(() => {
             toast.success("Product Added Successfully");
             setIsProductCreated(true);
