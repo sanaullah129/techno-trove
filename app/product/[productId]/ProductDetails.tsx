@@ -104,11 +104,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                     </div>
                     <HorizontalLine />
                     <div>
-                        <span className="font-semibold">Category: </span> {product.category}
+                        <span className="font-semibold">Category&colon; </span> {product.category}
                     </div>
                     <HorizontalLine />
                     <div>
-                        <span className="font-semibold">Brand: </span> {product.brand}
+                        <span className="font-semibold">Brand&colon; </span> {product.brand}
                     </div>
                     <div className={product.inStock ? "text-teal-400" : "text-rose-500"} >
                         {product.inStock ? "In Stock" : "Out of Stock"}
@@ -118,7 +118,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                         <>
                             <p className="mb-2 text-slate-500 flex items-center gap-1">
                                 <IoMdCheckmarkCircle className="text-teal-400" size={20} />
-                                <span>Product Added to Cart Successfully!!</span>
+                                <span>Product Added to Cart Successfully&excl;</span>
                             </p>
                             <div className="max-w-[300px]">
                             <ButtonDesign label="View Cart" outline onClick={()=>{
