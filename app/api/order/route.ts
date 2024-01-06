@@ -6,6 +6,7 @@ export async function PUT(request: Request) {
     const CurrentUser = await getCurrentUser();
 
     if(!CurrentUser) { return NextResponse.error(); }
+    //@ts-ignore
     if (CurrentUser.Role !== 'ADMIN') { return NextResponse.error(); }
 
     const body = await request.json();

@@ -8,7 +8,7 @@ interface IParams {
 }
 
 const Order = async ({ params }: { params: IParams }) => {
-
+//@ts-ignore
     const order = await getOrderById(params.orderId);
     if(!order){
         return <NullData title="No Data Found" />

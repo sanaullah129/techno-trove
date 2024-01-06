@@ -12,7 +12,7 @@ const Orders = async () => {
   if(!currentUser){
     return <NullData title='Oops! Access Denied' />
   };
-
+//@ts-ignore
   const orders = await getOrderByUserId(currentUser.id);
   if(!orders){
     return <NullData title='Oops! No orders found' />

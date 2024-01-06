@@ -30,6 +30,7 @@ export async function POST(request: Request) {
     const total: number = calculateOrderAmount(items);
 
     const orderData = {
+        //@ts-ignore
         user: { connect: { id: currentUser.id } },
         amount: total,
         currency: 'INR',

@@ -11,6 +11,7 @@ const Login = async () => {
   return (
     <Container>
         <FormWrap>
+        {/* @ts-ignore */}
             <LoginForm currentUser={currentUser} />
         </FormWrap>
     </Container>

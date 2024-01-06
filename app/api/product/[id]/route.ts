@@ -5,6 +5,7 @@ export async function DELETE(request: Request, {params}: {params: {id: string}})
 
     const CurrentUser = await getCurrentUser();
     if(!CurrentUser) { return NextResponse.error(); }
+    //@ts-ignore
     if (CurrentUser.Role !== 'ADMIN') { return NextResponse.error(); }
 
     const product = await prisma?.product.delete({

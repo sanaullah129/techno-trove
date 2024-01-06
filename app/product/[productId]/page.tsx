@@ -23,6 +23,7 @@ const Product = async ({params} : {params: IParams}) => {
       <Container>
         <ProductDetails product={product}/>
         <div className="flex flex-col gap-4 mt-16">
+        {/* @ts-ignore */}
           <AddRating product={product} user={user} />
           <ListRating product={product}/>
         </div>

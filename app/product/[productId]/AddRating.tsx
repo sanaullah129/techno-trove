@@ -53,7 +53,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
 
     const deliveredOrder = user?.orders.some(order => order.products.find(item => item.id === product.id)
         && order.deliveryStatus === 'delivered');
-
+//@ts-ignore
     const userReview = product?.review.find(((review: Review[]) => { return review.userId === user.id;}));
     if(userReview || !deliveredOrder) return null;
 

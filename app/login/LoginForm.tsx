@@ -64,7 +64,7 @@ const LoginForm: React.FC<LoginFormProps> = ({currentUser}) => {
             <InputDesign id="password" label="Password" disabled={isLoading} register={register} errors={errors} type="password" />
             <ButtonDesign label={isLoading ? "Loading" : "Log in"} onClick={handleSubmit(onSubmit)} />
             <p className="text-sm">
-                Don &apos; t have an Account?
+                Don&apos;t have an Account?
                 <Link href="/register" className="underline">
                     Sign up
                 </Link>

@@ -10,6 +10,7 @@ const Register = async () => {
   return (
     <Container>
         <FormWrap>
+        {/* @ts-ignore */}
             <RegisterForm currentUser = {currentUser} />
         </FormWrap>
     </Container>

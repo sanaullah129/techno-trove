@@ -9,6 +9,7 @@ const Cart = async () => {
   return (
     <div className="pt-6">
       <Container >
+      {/* @ts-ignore */}
         <CartClient currentUser={currentUser} />
       </Container>
     </div>

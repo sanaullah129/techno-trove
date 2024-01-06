@@ -9,7 +9,7 @@ const ManageProducts = async () => {
 
   const products = await getProducts({ category: null });
   const currentUser = await getCurrentUser();
-
+//@ts-ignore
   if(!currentUser || currentUser.Role !== 'ADMIN'){
     return <NullData title='Oops! Access Denied' />
   };

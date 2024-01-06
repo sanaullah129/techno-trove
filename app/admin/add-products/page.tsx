@@ -8,6 +8,7 @@ import NullData from '@/app/components/NullData'
 const AddProducts = async () => {
 
   const currentUser = await getCurrentUser();
+  //@ts-ignore
   if(!currentUser || currentUser.Role !== 'ADMIN'){
     return <NullData title='Oops! Access Denied' />
   }

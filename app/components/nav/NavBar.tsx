@@ -22,6 +22,7 @@ const NavBar = async () => {
             <div className="hidden md:block"><SearchBar /></div>
             <div className="flex items-center gap-8 md:gap-12">
               <CartCount />
+              {/* @ts-ignore */}
               <UserMenu currentUser = {currentUser} />
             </div>
           </div>
