@@ -1,5 +1,5 @@
 "use client";
-import { formatPrice } from "@/utils/formatPrice";
+import { formatPrice } from "@/utils/formatElements";
 import { truncateText } from "@/utils/truncateText";
 import { Rating } from "@mui/material";
 import Image from "next/image";

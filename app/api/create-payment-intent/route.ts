@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
-        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        return NextResponse.error();
     };
 
     const body = await request.json();
@@ -53,7 +53,7 @@ export async function POST(request: Request) {
                 })
             ]);
             if (!exisingOrder) {
-                return NextResponse.json({ error: 'Invalid Payment Intent' }, { status: 400 });
+                return NextResponse.error();
             }
             return NextResponse.json({ paymentIntent: updatedIntent });
         }
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
         const paymentIntent = await stripe.paymentIntents.create({
             amount: total,
             currency: 'INR',
-            automatic_payment_methods: { enabled: true }
+            automatic_payment_methods: { enabled: true },
         });
 
         //create the order
@@ -73,4 +73,5 @@ export async function POST(request: Request) {
         });
         return NextResponse.json({ paymentIntent });
     };
+    return NextResponse.error();
 };

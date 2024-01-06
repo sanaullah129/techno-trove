@@ -1,7 +1,7 @@
 'use client';
 
 import { useCart } from "@/hooks/useCart";
-import { formatPrice } from "@/utils/formatPrice";
+import { formatPrice } from "@/utils/formatElements";
 import { AddressElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";

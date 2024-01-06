@@ -1,5 +1,5 @@
 'use client'
-import { formatPrice } from "@/utils/formatPrice"
+import { formatPrice } from "@/utils/formatElements"
 import { CartProductType } from "../product/[productId]/ProductDetails"
 import Link from "next/link"
 import { truncateText } from "@/utils/truncateText"

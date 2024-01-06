@@ -2,7 +2,7 @@
 
 import HeadingDesign from '@/app/components/HeadingDesign';
 import Status from '@/app/components/Status';
-import { formatPrice } from '@/utils/formatPrice';
+import { formatPrice } from '@/utils/formatElements';
 import { Order } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import React from 'react';

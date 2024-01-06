@@ -32,8 +32,7 @@ const CheckoutClient = () => {
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify({
                     items: cartProducts,
-                    payment_intent_id: paymentIntent,
-                    // account_id: accountId
+                    payment_intent_id: paymentIntent
                 })
             }).then((res) => {
                 setLoading(false);

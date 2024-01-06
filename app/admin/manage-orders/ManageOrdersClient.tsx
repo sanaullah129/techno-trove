@@ -3,7 +3,7 @@
 import { Order, User } from '@prisma/client';
 import React, { useCallback } from 'react';
 import {DataGrid, GridColDef} from '@mui/x-data-grid';
-import { formatPrice } from '@/utils/formatPrice';
+import { formatPrice } from '@/utils/formatElements';
 import HeadingDesign from '@/app/components/HeadingDesign';
 import ActionButtons from '@/app/components/ActionButtons';
 import Status from '@/app/components/Status';

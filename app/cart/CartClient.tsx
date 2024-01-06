@@ -5,7 +5,7 @@ import { MdArrowBack } from 'react-icons/md';
 import HeadingDesign from "../components/HeadingDesign";
 import ButtonDesign from "../components/ButtonDesign";
 import ItemContent from "./ItemContent";
-import { formatPrice } from "@/utils/formatPrice";
+import { formatPrice } from "@/utils/formatElements";
 import { useRouter } from "next/navigation";
 import { SafeUser } from "@/types";
 import React from "react";

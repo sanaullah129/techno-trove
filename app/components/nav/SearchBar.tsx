@@ -1,6 +1,7 @@
 'use client'
+
 import { useRouter } from 'next/navigation'
-import qs from 'query-string'
+import queryString from 'query-string'
 import React from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 
@@ -16,7 +17,7 @@ const SearchBar = () => {
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         if (!data.searchTerm) return router.push('/');
 
-        const url = qs.stringifyUrl({
+        const url = queryString.stringifyUrl({
             url: '/',
             query: {
                 searchTerm: data.searchTerm
