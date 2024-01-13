@@ -27,6 +27,10 @@ const SearchBar = () => {
         reset();
     };
 
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key == "Enter") { handleSubmit(onSubmit)() };
+    }
+
     return (
         <div className='flex flex-center'>
             <input
@@ -34,7 +38,8 @@ const SearchBar = () => {
                 autoComplete='off'
                 type='text'
                 placeholder='Explore Techno Trove'
-                className='p-2 border-gray-300 rounded-l-md focus:outline-none focus:border-[0.5px] focus:border-slate-500 w-80' />
+                className='p-2 border-gray-300 rounded-l-md focus:outline-none focus:border-[0.5px] focus:border-slate-500 w-80'
+                onKeyDown={handleKeyDown} />
             <button onClick={handleSubmit(onSubmit)} className='bg-slate-700 hover:opacity-75 text-white p-2 rounded-r-md'>Search</button>
         </div>
     )

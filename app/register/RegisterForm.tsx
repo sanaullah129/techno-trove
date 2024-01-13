@@ -74,7 +74,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ currentUser }) => {
             <InputDesign id="password" label="Password" disabled={isLoading} register={register} errors={errors} type="password" />
             <ButtonDesign label={isLoading ? "Loading" : "Sign Up"} onClick={handleSubmit(onSubmit)} />
             <p className="text-sm">
-                Already have an Account?
+                Already have an Account? 
                 <Link href="/login" className="underline">
                     Log in
                 </Link>

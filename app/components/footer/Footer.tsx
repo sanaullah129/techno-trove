@@ -19,11 +19,10 @@ const Footer = () => {
             <Link href='#'>Accessories</Link>
           </FooterList>
           <FooterList>
-            <h3 className="text-base font-bold mb-2">Customer Service</h3>
-            <Link href='#'>Contact Us</Link>
-            <Link href='#'>Shipping Policy</Link>
-            <Link href='#'>Refund and Return</Link>
-            <Link href='#'>About Us</Link>
+            <h3 className="text-base font-bold mb-2">Customer Service</h3>          
+            <Link href='/shipping-policy'>Shipping Policy</Link>
+            <Link href='/refund-and-return'>Refund and Return</Link>
+            <Link href='/about-us'>About Us</Link>
           </FooterList>          
           <FooterList>
             <h3 className="text-base font-bold mb-2">Follow</h3>
@@ -34,7 +33,9 @@ const Footer = () => {
             </div>
           </FooterList>
           <div>
+            <a href="/">
             <Image src="/logo.png" alt="techno-trove" width={200} height={200} />
+            </a>
           </div>
         </div>
       </Container>
