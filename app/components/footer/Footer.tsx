@@ -11,12 +11,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-around pt-16 pb-8">
           <FooterList>
             <h3 className="text-base font-bold mb-2">Shop Categories</h3>
-            <Link href='#'>Phones</Link>
-            <Link href='#'>Laptops</Link>
-            <Link href='#'>Desktops</Link>
-            <Link href='#'>Watches</Link>
-            <Link href='#'>TVs</Link>
-            <Link href='#'>Accessories</Link>
+            <Link href='/?category=Phone'>Phones</Link>
+            <Link href='/?category=Phone'>Laptops</Link>
+            <Link href='/?category=Phone'>Desktops</Link>
+            <Link href='/?category=Phone'>Watches</Link>
+            <Link href='/?category=Phone'>TVs</Link>
+            <Link href='/?category=Phone'>Accessories</Link>
           </FooterList>
           <FooterList>
             <h3 className="text-base font-bold mb-2">Customer Service</h3>          
