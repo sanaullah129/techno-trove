@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="flex gap-5">
               <Link href='https://github.com/sanaullah129?tab=repositories' target="blank"><BsGithub size={24} /></Link>
               <Link href='https://www.linkedin.com/in/sanaullah129' target="blank"><BsLinkedin size={24} /></Link>
-              <Link href='https://www.instagram.com/sanaullah129/' target="blank"><BsInstagram size={24} /></Link>
+              <Link href='https://www.instagram.com/sanaullah_129_/' target="blank"><BsInstagram size={24} /></Link>
             </div>
           </FooterList>
           <div>
